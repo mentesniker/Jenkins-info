@@ -19,12 +19,6 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-               when {
-                    expression {
-                        // equivalent to if (currentBuild.result == null || currentBuild.result == 'SUCCESS') then ejectue steps
-                        currentBuild.result == null || currentBuild.result == 'SUCCESS' 
-                    }
-                }
                 steps {
                     sh 'make publish'
                 }
